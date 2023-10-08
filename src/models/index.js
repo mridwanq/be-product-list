@@ -44,6 +44,14 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
+const associateModel = (path) => {
+  const model = require(path)(sequelize, Sequelize);
+  model.associate(db);
+  return model;
+};
+
+db.Product = associateModel('./product');
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
