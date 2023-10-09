@@ -14,6 +14,11 @@ app.use(bearertoken());
 
 app.use('/products', routers.productRouter);
 
+app.use(
+  '/public/product',
+  express.static(`${__dirname}/../public/image/productImages`)
+);
+
 app.get('/test', (req, res) => {
   res.send('welcome api product list');
 });

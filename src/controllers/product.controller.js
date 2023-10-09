@@ -96,7 +96,7 @@ const productController = {
 
   createProduct: async (req, res) => {
     try {
-      req.body.imageName = req.file.filename;
+      req.body.image_name = req.file.filename;
       const result = await Product.create({ ...req.body });
 
       res.status(200).json({
